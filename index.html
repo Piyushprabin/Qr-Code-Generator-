@@ -12,9 +12,22 @@
     <div class="container">
         <h1>QR Code Generator</h1>
         <input type="text" id="qrInput" placeholder="Enter text or URL" />
-        <button id="generateBtn">Generate QR Code</button>
+        <div>
+            <label for="qrType">Select QR Code Type:</label>
+            <select id="qrType" style="margin-bottom: 10px;"> <!-- Added margin -->
+
+                <option value="website">Website</option>
+                <option value="social">Social Media</option>
+                <option value="phone">Phone Number</option>
+                <option value="email">Email Address</option>
+            </select>
+        </div>
+<button id="generateBtn" style="margin-bottom: 10px;">Generate QR Code</button>
+
+
         
-        <div id="qrCode"></div>
+<div id="qrCode" style="margin-bottom: 10px;"></div> <!-- Added margin -->
+
         
         <div>
             <label for="pixelSize">Select pixel size (max 2000):</label>
@@ -22,16 +35,3 @@
             <span id="pixelValue">200</span> pixels
         </div>
         
-        <div>
-            <label for="fileFormat">Select file format:</label>
-            <select id="fileFormat">
-                <option value="png">PNG</option>
-                <option value="jpg">JPG</option>
-            </select>
-        </div>
-        
-        <button id="downloadBtn" style="display:none;">Download QR Code</button>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
