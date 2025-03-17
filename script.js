@@ -1,32 +1,26 @@
-// Include the QRCode.js library in your HTML file for this to work
-document.getElementById('generateBtn').addEventListener('click', function() {
+document.getElementById('generateBtn').addEventListener('click', () => {
     const qrInput = document.getElementById('qrInput').value;
-    const qrCodeContainer = document.getElementById('qrCode');
-    $(qrCodeContainer).empty(); // Clear previous QR code
+    const qrType = document.getElementById('qrType').value;
 
-    if (qrInput) {
-        const pixelSize = document.getElementById('pixelSize').value; // Get pixel size from slider
-        $(qrCodeContainer).qrcode({
-            text: qrInput,
-            width: pixelSize, // Use pixel size from slider
-            height: pixelSize, // Use pixel size from slider
-        });
-
-        document.getElementById('downloadBtn').style.display = 'block';
-        document.getElementById('downloadBtn').onclick = function() {
-            const canvas = qrCodeContainer.querySelector('canvas');
-            const fileFormat = document.getElementById('fileFormat').value; // Get selected file format
-            const link = document.createElement('a');
-            link.href = canvas.toDataURL(`image/${fileFormat}`); // Set the correct format
-            link.download = `qr_code.${fileFormat}`; // Set the file name with the selected format
-            link.click();
-        };
-    } else {
-        alert('Please enter a value to generate a QR code.');
+    let qrData;
+    switch (qrType) {
+        case 'website':
+            qrData = qrInput; // Assume input is a URL
+            break;
+        case 'social':
+            qrData = `https://socialmedia.com/${qrInput}`; // Example for social media
+            break;
+        case 'phone':
+            qrData = `tel:${qrInput}`; // Format for phone number
+            break;
+        case 'email':
+            qrData = `mailto:${qrInput}`; // Format for email address
+            break;
+        default:
+            qrData = qrInput; // Fallback
     }
-});
 
-// Update pixel value display dynamically
-document.getElementById('pixelSize').addEventListener('input', function() {
-    document.getElementById('pixelValue').textContent = this.value; // Update displayed pixel value
+    // Generate QR Code
+    $('#qrCode').empty(); // Clear previous QR code
+    $('#qrCode').qrcode(qrData);
 });
