@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Vibrant background */
+}
+
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    padding: 40px; /* Increased padding */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s; /* Animation on hover */
+}
+
+.container:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+
+input {
+    padding: 15px; /* Increased padding */
+    width: 250px; /* Increased width */
+    margin-bottom: 20px; /* Increased margin */
+    border: 2px solid #feb47b; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    transition: border-color 0.3s; /* Animation on focus */
+}
+
+input:focus {
+    border-color: #ff7e5f; /* Change border color on focus */
+}
+
+
+button {
+    padding: 15px 20px; /* Increased padding */
+    background-color: #ff7e5f; /* Vibrant button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Animation on hover */
+    display: block; /* Ensure the button is a block element */
+    margin: 20px auto; /* Center the button horizontally */
+}
+
+
+button:hover {
+    background-color: #feb47b; /* Change color on hover */
+}
+
+
+button:hover {
+    background-color: #0056b3;
+}
